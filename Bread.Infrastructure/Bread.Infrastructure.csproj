@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200128215014_AddDbSets.cs" />
+    <Compile Remove="Migrations\20200128215014_AddDbSets.Designer.cs" />
+    <Compile Remove="Migrations\20200129020227_AddParticipates.cs" />
+    <Compile Remove="Migrations\20200129020227_AddParticipates.Designer.cs" />
+    <Compile Remove="Migrations\20200129020424_AddParticipates.cs" />
+    <Compile Remove="Migrations\20200129020424_AddParticipates.Designer.cs" />
+    <Compile Remove="Migrations\20200129020702_addDBSets.cs" />
+    <Compile Remove="Migrations\20200129020702_addDBSets.Designer.cs" />
+    <Compile Remove="Migrations\20200129020827_addDBSets.cs" />
+    <Compile Remove="Migrations\20200129020827_addDBSets.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="automapper" Version="9.0.0" />
+    <PackageReference Include="IdentityServer4.EntityFramework.Storage" Version="3.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.ApiAuthorization.IdentityServer" Version="3.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <!-- Keep this -->
+    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.2.0-preview2-35157" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Bread.Application\Bread.Application.csproj" />
+    <ProjectReference Include="..\Bread.Domain\Bread.Domain.csproj" />
+  </ItemGroup>
+ 
+
+</Project>
