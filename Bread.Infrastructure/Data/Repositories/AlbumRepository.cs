@@ -18,6 +18,11 @@ namespace Bread.Infrastructure.Data.Repositories
 
         public async Task<Album> CreateAlbum(int hostGroupId, AlbumInfo info)
         {
+            Group host = await _dbContext.Groups.FindAsync(hostGroupId);
+            if (host == null) {
+                throw new BreadException(BreadExceptionCode.GroupIdIsUnknown);
+            }
+
             var album = new Album();
             album.SetInfo(info);
             album.GroupId = hostGroupId;

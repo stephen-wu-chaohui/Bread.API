@@ -7,16 +7,16 @@ namespace Bread.Domain.Entities
 {
     public class Group : Entity<int>
     {
-        public string Name { get; private set; }
+        public string Name { get; set; }
 
-        public string MissionStatement { get; private set; }
+        public string MissionStatement { get; set; }
 
-        public string PrefaceImage { get; private set; }
+        public string PrefaceImage { get; set; }
 
-        public string FacebookGroupId { get; private set; }
+        public string FacebookGroupId { get; set; }
 
         [ForeignKey("ApplicationUser")]
-        public string AdministratorId { get; private set; }
+        public string AdministratorId { get; set; }
 
         public ICollection<Album> Albums { get; }
 

@@ -19,14 +19,9 @@ namespace Bread.API.Schemas.Accounts
                 .Length(1, 255);
 
             RuleFor(x => x.Email)
-                .NotEmpty()
                 .EmailAddress(EmailValidationMode.AspNetCoreCompatible)
                 .MustAsync(userValidationService.IsEmailUnique)
                 .WithMessage("Email already taken");
-
-
-            RuleFor(x => x.Email)
-                .EmailAddress(EmailValidationMode.AspNetCoreCompatible);
 
             RuleFor(x => x.UserName)
                 .Length(2, 30)

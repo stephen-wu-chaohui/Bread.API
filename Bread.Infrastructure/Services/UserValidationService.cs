@@ -17,7 +17,7 @@ namespace Bread.Infrastructure.Services
 
         public async Task<bool> IsEmailUnique(string emailAddress, CancellationToken cancellationToken = default)
         {
-            return await _userManager.FindByEmailAsync(emailAddress) != null;
+            return await _userManager.FindByEmailAsync(emailAddress) == null;
         }
     }
 }

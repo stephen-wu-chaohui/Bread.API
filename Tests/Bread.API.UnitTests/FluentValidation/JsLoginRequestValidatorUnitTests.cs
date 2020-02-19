@@ -13,6 +13,39 @@ namespace Bread.API.UnitTests.FluentValidation
         readonly JsLoginRequestValidator validator = new JsLoginRequestValidator();
 
         [Fact]
+        public void Pass_When_UserNameIsValid()
+        {
+            //Arrange
+            //Act
+            validator.ShouldNotHaveValidationErrorFor(jsLoginRequest => jsLoginRequest.UserName, "AB");
+            //Assert
+        }
+
+        [Fact]
+        public void Error_When_UserNameIsEmpty()
+        {
+            //Arrange
+            //Act
+            //Assert
+            validator.ShouldHaveValidationErrorFor(jsLoginRequest => jsLoginRequest.UserName, (string)null);
+            validator.ShouldHaveValidationErrorFor(jsLoginRequest => jsLoginRequest.UserName, string.Empty);
+        }
+
+        [Fact]
+        public void Error_When_UserName_IsTooShortOrTooLong()
+        {
+            //Arrange
+            //Act
+            //Assert
+            validator.ShouldHaveValidationErrorFor(jsLoginRequest => jsLoginRequest.UserName,
+                "A"
+                );
+            validator.ShouldHaveValidationErrorFor(jsLoginRequest => jsLoginRequest.UserName,
+                "A123456789012345678901234567890"
+                );
+        }
+
+        [Fact]
         public void Pass_When_PasswordIsValid()
         {
             //Arrange
