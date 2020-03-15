@@ -6,6 +6,9 @@ using Bread.API.Presenters;
 using Microsoft.AspNetCore.Authorization;
 using Bread.Application.Users;
 using Bread.API.Schemas.Accounts;
+using Bread.Domain.Entities;
+using System.Net;
+using Bread.Application.UseCases.Users;
 
 namespace Bread.API.Controllers
 {
@@ -38,6 +41,17 @@ namespace Bread.API.Controllers
         {
             var result = await _mediator.Send(_mapper.Map<UserLoginCommand>(request));
             return _representer.ToActionResult(result);
+        }
+
+        // GET api/accounts/me
+        [HttpGet("me")]
+        [Authorize]
+        [ProducesResponseType(typeof(JsUserInfo), (int)HttpStatusCode.OK)]
+        public async Task<IActionResult> GetMe()
+        {
+            var query = new GetApplicationUserQuery();
+            var response = await _mediator.Send(query);
+            return _representer.ToDataResult<JsUserInfo>(response);
         }
 
         // POST api/accounts/logout
