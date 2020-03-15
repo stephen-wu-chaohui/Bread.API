@@ -31,6 +31,7 @@ namespace Bread.Infrastructure
         {
             services.AddSingleton<IDateTime, ServerDateTime>();
             services.AddSingleton<ISecureLogin, JwtFactory>();
+            services.AddSingleton<IVideoRepository, YoutubeReader>();
         }
 
         private static void AddRepositories(this IServiceCollection services)
