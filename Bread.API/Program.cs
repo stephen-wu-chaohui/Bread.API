@@ -1,9 +1,7 @@
 ﻿using Bread.Infrastructure.Data.DbContexts;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-
 
 namespace Bread.API
 {
@@ -25,13 +23,7 @@ namespace Bread.API
                 .ConfigureWebHostDefaults(webBuilder => {
                     webBuilder.UseStartup<Startup>();
                 })
-                .ConfigureAppConfiguration((hostContext, builder) =>
-                {
-                    if (hostContext.HostingEnvironment.IsDevelopment())
-                    {
-                        builder.AddUserSecrets<Program>();
-                    }
-                });
+            ;
 
     }
 }
